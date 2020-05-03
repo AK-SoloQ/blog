@@ -1,13 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
 
-function Navbar() {
-  const navBars = [
-    { name: "Home", type: "simple" },
-    { name: "Web", type: "simple" },
-    { name: "DevOps", type: "dropdown", menus: ["Dev", "Ops"] },
-    { name: "Contact", type: "simple" },
-  ];
-  const active = "DevOps";
+function Navbar(props) {
+  console.log(props);
+  const navBars = props.pages;
+  let active = props.active;
+
+  const findActive = () => {
+    var result = navBars.find((navbar) => navbar.name === active);
+    if (typeof result === "undefined") {
+      result = navBars.find((item) => {
+        if (item.type === "dropdown") {
+          var _result = item.menus.find((menu) => menu === active);
+        }
+        return !!_result;
+      });
+    }
+    active = result.name;
+  };
+  findActive();
+
+  const renderDropDown = (navbar, index, _class) => {
+    return (
+      <li key={index} className={`dropdown ${_class}`}>
+        <a className="dropdown-toggle" data-toggle="dropdown">
+          {navbar.name} <b className="caret"></b>
+        </a>
+        <ul className="dropdown-menu">
+          {navbar.menus.map((menu, index) => {
+            const _class = menu === props.active ? "active" : "";
+            return (
+              <li
+                key={index}
+                className={_class}
+                onClick={() => {
+                  props.handlerPageSelect(menu);
+                }}
+              >
+                <a>{menu}</a>
+              </li>
+            );
+          })}
+        </ul>
+      </li>
+    );
+  };
+
   return (
     <div className="navbar navbar-inverse navbar-fixed-top headroom">
       <div className="container">
@@ -32,28 +69,17 @@ function Navbar() {
               const _class = navbar.name === active ? "active" : "";
 
               return navbar.type === "simple" ? (
-                <li key={index} className={_class}>
+                <li
+                  key={index}
+                  className={_class}
+                  onClick={() => {
+                    props.handlerPageSelect(navbar.name);
+                  }}
+                >
                   <a>{navbar.name}</a>
                 </li>
               ) : (
-                <li key={index} className={`dropdown ${_class}`}>
-                  <a
-                    href="#"
-                    className="dropdown-toggle"
-                    data-toggle="dropdown"
-                  >
-                    {navbar.name} <b className="caret"></b>
-                  </a>
-                  <ul className="dropdown-menu">
-                    {navbar.menus.map((menu, index) => {
-                      return (
-                        <li key={index} className="active">
-                          <a href="sidebar-left.html">{menu}</a>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </li>
+                renderDropDown(navbar, index, _class)
               );
             })}
 
