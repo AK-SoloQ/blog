@@ -1,34 +1,45 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import Navbar from "./Containers/nav/Navbar";
 import Header from "./Containers/header/Header";
-import Container from "./Containers/home/Container";
 import Footer from "./Containers/footer/Footer";
+import { NotFound, SideBarLeft, Container } from "./Containers/pages";
+import { PAGES } from "./constants";
 
 function App() {
-  const [pages, setPages] = useState([]);
-  const [active, setActive] = useState("Dev");
-  useEffect(() => {
-    setPages([
-      { name: "Home", type: "simple" },
-      { name: "Web", type: "simple" },
-      { name: "DevOps", type: "dropdown", menus: ["Dev", "Ops"] },
-      { name: "Contact", type: "simple" },
-    ]);
-  }, []);
+  const [active, setActive] = useState("Docker");
+  const renderContainer = () => {
+    let body = [];
+    if (active !== "Home") {
+      body.push(<header id="head" className="secondary" />);
+    }
+    switch (active) {
+      case "Home":
+        body.push(<Header />);
+        body.push(<Container />);
+        break;
+      case "Docker":
+        body.push(<SideBarLeft />);
+        break;
+      default:
+        body.push(<NotFound />);
+        break;
+    }
+    return body;
+  };
+
   const handlerPageSelect = (name) => {
     setActive(name);
-    console.log("cliked: ", name);
   };
-  return pages.length ? (
+
+  return PAGES.length ? (
     <div className="home">
       <Navbar
-        pages={pages}
+        pages={PAGES}
         active={active}
         handlerPageSelect={handlerPageSelect}
       />
-      <Header />
-      <Container />
+      {renderContainer()}
       <Footer />
     </div>
   ) : (
