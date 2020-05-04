@@ -4,35 +4,38 @@ import Navbar from './Containers/nav/Navbar'
 import Header from './Containers/header/Header'
 import Footer from './Containers/footer/Footer'
 import { NotFound, SideBarLeft, Container } from './Containers/pages'
-import { PAGES } from './constants'
+import { PAGES, DOCKER } from './constants'
 
 function App () {
   const [active, setActive] = useState('Docker')
   const renderContainer = () => {
-    const body = []
     let hasBody = true
+    const _render = []
+
     if (active !== 'Home') {
-      body.push(<header id='head' className='secondary' />)
+      _render.push(<header id='head' className='secondary' />)
     }
+
     switch (active) {
       case 'Home':
-        body.push(<Header />)
-        body.push(<Container />)
+        _render.push(<Header />)
+        _render.push(<Container />)
         break
       case 'Docker':
       case 'Compose':
       case 'Vagrant':
       case 'Ansible':
       case 'Swarm':
-        body.push(<SideBarLeft name={active} handlerPageSelect={handlerPageSelect} />)
+
+        _render.push(<SideBarLeft name={active} handlerPageSelect={handlerPageSelect} content={DOCKER} />)
         break
       default:
         hasBody = false
-        body.push(<NotFound />)
+        _render.push(<NotFound />)
         break
     }
-    if (hasBody) { body.push(<Footer />) }
-    return body
+    if (hasBody) { _render.push(<Footer />) }
+    return _render
   }
 
   const handlerPageSelect = (name) => {

@@ -1,13 +1,13 @@
 import React from 'react'
 
-function SideBarLeft (props) {
+function SideBarLeft ({ handlerPageSelect, name, content }) {
   return (
     <div className='container'>
       <ol className='breadcrumb'>
         <li>
-          <a onClick={() => { props.handlerPageSelect() }} >Home</a>
+          <a onClick={() => { handlerPageSelect('Home') }} >Home</a>
         </li>
-        <li className='active'>{props.name}</li>
+        <li className='active'>{name}</li>
       </ol>
 
       <div className='row'>
@@ -15,34 +15,31 @@ function SideBarLeft (props) {
         <aside className='col-md-4 sidebar sidebar-left'>
           <div className='row widget'>
             <div className='col-xs-12'>
-              <h4>Test</h4>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Facere, ratione delectus reiciendis nulla nisi pariatur
-                molestias animi eos repellat? Vel.
-              </p>
+              <h4>Plan</h4>
+              <ul class='list-unstyled list-spaces'>
+                { content.plans.map((plan, index) => {
+                  return (
+                    <li key={index}>
+                      <h6>{plan}</h6>
+                    </li>
+                  )
+                })}
+
+              </ul>
             </div>
           </div>
           <div className='row widget'>
-            <div className='col-xs-12'>
-              <h4>Lorem ipsum dolor sit</h4>
-              <p>
-                <img src='assets/images/1.jpg' alt='' />
-              </p>
-            </div>
-          </div>
-          <div className='row widget'>
-            <div className='col-xs-12'>
-              <h4>Lorem ipsum dolor sit</h4>
-              <p>
-                <img src='assets/images/2.jpg' alt='' />
-              </p>
-              <p>
-                Qui, debitis, ad, neque reprehenderit laborum soluta dolor
-                voluptate eligendi enim consequuntur eveniet recusandae rerum?
-                Atque eos corporis provident tenetur.
-              </p>
-            </div>
+            {content.images.map((image, index) => {
+              return (
+                <div className='col-xs-12' key={index}>
+                  <h4>{image.title}</h4>
+                  <p>
+                    <img src={image.path} alt={image.title} />
+                  </p>
+                </div>
+              )
+            })}
+
           </div>
         </aside>
         {/* <!-- /Sidebar --> */}
@@ -51,15 +48,11 @@ function SideBarLeft (props) {
         <article className='col-md-8 maincontent'>
           <header className='page-header'>
             <h1 className='page-title'>
-              Lorem ipsum dolor sit amet, consectetur.
+              {content.title}
             </h1>
           </header>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Laudantium, itaque, cumque, maxime obcaecati reprehenderit ea
-            dignissimos amet voluptatem id excepturi facilis totam veritatis
-            maiores eveniet neque explicabo temporibus quisquam in ex ab fugiat
-            ipsa tempore sunt corporis nostrum quam illum!
+            {content.intro}
           </p>
           <p>
             Consectetur cupiditate labore repudiandae beatae nisi fugiat facilis
@@ -76,7 +69,7 @@ function SideBarLeft (props) {
             reiciendis accusamus.
           </p>
 
-          <h2>A, quibusdam, nobis, eveniet consequatur</h2>
+          <h2 id='1'>A, quibusdam, nobis, eveniet consequatur</h2>
           <p>
             A, quibusdam, nobis, eveniet consequatur alias doloremque officia
             blanditiis fuga et numquam labore reiciendis voluptas quis repellat
