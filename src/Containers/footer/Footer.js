@@ -1,36 +1,36 @@
-import React from "react";
-function Footer() {
+import React from 'react'
+function Footer () {
   return (
-    <footer id="footer" className="top-space">
-      <div className="footer1">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-3 widget">
-              <h3 className="widget-title">Contact</h3>
-              <div className="widget-body">
+    <footer id='footer' className='top-space'>
+      <div className='footer1'>
+        <div className='container'>
+          <div className='row'>
+            <div className='col-md-3 widget'>
+              <h3 className='widget-title'>Contact</h3>
+              <div className='widget-body'>
                 <p>
-                  <i className="fa fa-phone fa-2x" aria-hidden="true" />
-                  {"  "}
+                  <i className='fa fa-phone fa-2x' aria-hidden='true' />
+                  {'  '}
                   (+216) 52 129435
                   <br />
                   <br />
-                  <i className="fa fa-user fa-2x" aria-hidden="true" />
-                  {"  "}
-                  <a href="mailto:ahmed@abdelmoula.co">ahmed@abdelmoula.co</a>
+                  <i className='fa fa-user fa-2x' aria-hidden='true' />
+                  {'  '}
+                  <a href='mailto:ahmed@abdelmoula.co'>ahmed@abdelmoula.co</a>
                   <br />
                   <br />
-                  <i className="fa fa-home fa-2x" aria-hidden="true" />
-                  {"  "}
+                  <i className='fa fa-home fa-2x' aria-hidden='true' />
+                  {'  '}
                   11 Riadh Andalous, Ariana City, TN 2036
                 </p>
               </div>
             </div>
 
-            <div className="col-md-3 widget"></div>
+            <div className='col-md-3 widget' />
 
-            <div className="col-md-6 widget">
-              <h3 className="widget-title">PROFIL PERSONNEL</h3>
-              <div className="widget-body">
+            <div className='col-md-6 widget'>
+              <h3 className='widget-title'>PROFIL PERSONNEL</h3>
+              <div className='widget-body'>
                 <p>
                   Passionné par la réalisation et le développement de projets
                   web, je me suis tout naturellement tourné vers une carrière de
@@ -60,29 +60,29 @@ function Footer() {
         </div>
       </div>
 
-      <div className="footer2">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-6 widget">
-              <div className="widget-body">
-                <p className="simplenav">
-                  <a href="#"> Home </a> |<a href="contact.html"> Contact </a>
+      <div className='footer2'>
+        <div className='container'>
+          <div className='row'>
+            <div className='col-md-6 widget'>
+              <div className='widget-body'>
+                <p className='simplenav'>
+                  <a href='#'> Home </a> |<a href='contact.html'> Contact </a>
                 </p>
               </div>
             </div>
 
-            <div className="col-md-6 widget">
-              <div className="widget-body">
-                <p className="text-right">
-                  Copyright &copy; 2020, Abd Ahmed. Designed par{" "}
-                  <a href="http://gettemplate.com/" rel="designer">
+            <div className='col-md-6 widget'>
+              <div className='widget-body'>
+                <p className='text-right'>
+                  Copyright &copy; 2020, Abd Ahmed. Designed par{' '}
+                  <a href='http://gettemplate.com/' rel='designer'>
                     Gettemplate
                   </a>
-                  {" - "}
-                  <a href="https://pozhilov.com/" rel="designer">
+                  {' - '}
+                  <a href='https://pozhilov.com/' rel='designer'>
                     Pozhilov
                   </a>
-                  {" (Many Thanks To Them) "}
+                  {' (Many Thanks To Them) '}
                 </p>
               </div>
             </div>
@@ -90,7 +90,7 @@ function Footer() {
         </div>
       </div>
     </footer>
-  );
+  )
 }
 
-export default Footer;
+export default Footer

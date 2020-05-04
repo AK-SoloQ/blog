@@ -1,20 +1,20 @@
-import React from "react";
+import React from 'react'
 
-function SideBarLeft() {
+function SideBarLeft (props) {
   return (
-    <div className="container">
-      <ol className="breadcrumb">
+    <div className='container'>
+      <ol className='breadcrumb'>
         <li>
-          <a href="index.html">Home</a>
+          <a onClick={() => { props.handlerPageSelect() }} >Home</a>
         </li>
-        <li className="active">Left Sidebar</li>
+        <li className='active'>{props.name}</li>
       </ol>
 
-      <div className="row">
+      <div className='row'>
         {/* <!-- Sidebar --> */}
-        <aside className="col-md-4 sidebar sidebar-left">
-          <div className="row widget">
-            <div className="col-xs-12">
+        <aside className='col-md-4 sidebar sidebar-left'>
+          <div className='row widget'>
+            <div className='col-xs-12'>
               <h4>Test</h4>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -23,19 +23,19 @@ function SideBarLeft() {
               </p>
             </div>
           </div>
-          <div className="row widget">
-            <div className="col-xs-12">
+          <div className='row widget'>
+            <div className='col-xs-12'>
               <h4>Lorem ipsum dolor sit</h4>
               <p>
-                <img src="assets/images/1.jpg" alt="" />
+                <img src='assets/images/1.jpg' alt='' />
               </p>
             </div>
           </div>
-          <div className="row widget">
-            <div className="col-xs-12">
+          <div className='row widget'>
+            <div className='col-xs-12'>
               <h4>Lorem ipsum dolor sit</h4>
               <p>
-                <img src="assets/images/2.jpg" alt="" />
+                <img src='assets/images/2.jpg' alt='' />
               </p>
               <p>
                 Qui, debitis, ad, neque reprehenderit laborum soluta dolor
@@ -47,10 +47,10 @@ function SideBarLeft() {
         </aside>
         {/* <!-- /Sidebar --> */}
 
-        {/* <!-- Article main content -->*/}
-        <article className="col-md-8 maincontent">
-          <header className="page-header">
-            <h1 className="page-title">
+        {/* <!-- Article main content --> */}
+        <article className='col-md-8 maincontent'>
+          <header className='page-header'>
+            <h1 className='page-title'>
               Lorem ipsum dolor sit amet, consectetur.
             </h1>
           </header>
@@ -133,7 +133,7 @@ function SideBarLeft() {
         {/* <!-- /Article --> */}
       </div>
     </div>
-  );
+  )
 }
 
-export default SideBarLeft;
+export default SideBarLeft

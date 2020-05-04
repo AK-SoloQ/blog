@@ -1,5 +1,5 @@
-import NotFound from "./NotFound";
-import SideBarLeft from "./SideBarLeft";
-import Container from "./Home";
+import NotFound from './NotFound'
+import SideBarLeft from './SideBarLeft'
+import Container from './Home'
 
-export { NotFound, SideBarLeft, Container };
+export { NotFound, SideBarLeft, Container }

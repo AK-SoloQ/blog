@@ -1,3 +1,3 @@
-import PAGES from "./pages";
+import PAGES from './pages'
 
-export { PAGES };
+export { PAGES }

@@ -1,36 +1,36 @@
-import React from "react";
-function Container() {
+import React from 'react'
+function Container () {
   return (
-    <div className="container">
-      <h2 className="text-center top-space">Questions fréquemment posées</h2>
+    <div className='container'>
+      <h2 className='text-center top-space'>Questions fréquemment posées</h2>
       <br />
 
-      <div className="row">
-        <div className="col-sm-6">
+      <div className='row'>
+        <div className='col-sm-6'>
           <h3>Quel éditeur de code recommanderiez-vous?</h3>
           <p>
             Je vous recommande fortement
-            <a href="https://code.visualstudio.com/">VS Code</a> - un éditeur de
+            <a href='https://code.visualstudio.com/'>VS Code</a> - un éditeur de
             texte gratuit, j'utilise quotidiennement. Un outil génial!
           </p>
         </div>
-        <div className="col-sm-6">
+        <div className='col-sm-6'>
           <h3>
             Belle en-tête. Où puis-je trouver plus d'images comme celle-ci??
           </h3>
           <p>
             Eh bien, il y a des milliers de galeries d'art, mais
             personnellement, je préfère utiliser des photos de ces sites:
-            <a href="http://unsplash.com">Unsplash.com</a> et
-            <a href="http://www.flickr.com/creativecommons/by-2.0/tags/">
+            <a href='http://unsplash.com'>Unsplash.com</a> et
+            <a href='http://www.flickr.com/creativecommons/by-2.0/tags/'>
               Flickr - Creative Commons
             </a>
           </p>
         </div>
       </div>
 
-      <div className="row">
-        <div className="col-sm-6">
+      <div className='row'>
+        <div className='col-sm-6'>
           <h3>Puis-je utiliser vos modules pour mes propres création ?</h3>
           <p>
             Oui, bien sûr Vous pouvez utiliser tous les modèles pour n'importe
@@ -38,18 +38,18 @@ function Container() {
             officielles
           </p>
         </div>
-        <div className="col-sm-6">
+        <div className='col-sm-6'>
           <h3>Pouvez-vous personnaliser un site pour moi?</h3>
           <p>
             Oui je peux. S'il vous plaît écrivez-moi à l'adresse
-            <a href="mailto:ahmed@abdelmoula.com"> ahmed@abdelmoula.com </a> et
+            <a href='mailto:ahmed@abdelmoula.com'> ahmed@abdelmoula.com </a> et
             décrivez vos besoins en détail. Veuillez noter que mes services sont
             bon marché.
           </p>
         </div>
       </div>
 
-      {/*<div className="jumbotron top-space">
+      {/* <div className="jumbotron top-space">
         <h4>
           Dicta, nostrum nemo soluta sapiente sit dolor quae voluptas quidem
           doloribus recusandae facere magni ullam suscipit sunt atque rerum
@@ -61,7 +61,7 @@ function Container() {
         </p>
       </div> */}
     </div>
-  );
+  )
 }
 
-export default Container;
+export default Container

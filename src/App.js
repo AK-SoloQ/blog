@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
-import Navbar from './Containers/nav/Navbar';
-import Header from './Containers/header/Header';
-import Footer from './Containers/footer/Footer';
-import { NotFound, SideBarLeft, Container } from './Containers/pages';
-import { PAGES } from './constants';
+import Navbar from './Containers/nav/Navbar'
+import Header from './Containers/header/Header'
+import Footer from './Containers/footer/Footer'
+import { NotFound, SideBarLeft, Container } from './Containers/pages'
+import { PAGES } from './constants'
 
 function App () {
   const [active, setActive] = useState('Docker')
   const renderContainer = () => {
-    let body = []
+    const body = []
     let hasBody = true
     if (active !== 'Home') {
       body.push(<header id='head' className='secondary' />)
@@ -18,14 +18,18 @@ function App () {
       case 'Home':
         body.push(<Header />)
         body.push(<Container />)
-        break;
+        break
       case 'Docker':
-        body.push(<SideBarLeft />)
-        break;
+      case 'Compose':
+      case 'Vagrant':
+      case 'Ansible':
+      case 'Swarm':
+        body.push(<SideBarLeft name={active} handlerPageSelect={handlerPageSelect} />)
+        break
       default:
         hasBody = false
         body.push(<NotFound />)
-        break;
+        break
     }
     if (hasBody) { body.push(<Footer />) }
     return body
@@ -33,7 +37,7 @@ function App () {
 
   const handlerPageSelect = (name) => {
     setActive(name)
-  };
+  }
 
   return PAGES.length ? (
     <div className='home'>
