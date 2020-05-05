@@ -17,10 +17,16 @@ function renderContent(keys, section) {
 
 function renderCoreItem(key, data) {
   switch (key.slice(0, key.indexOf("_"))) {
+    case "bigTitle":
+      return <h1>{data}</h1>;
     case "title":
-      return <h2>{data} </h2>;
+      return <h3>{data} </h3>;
     case "list":
       return renderList(key, data);
+    case "block":
+      return <blockquote>{data}</blockquote>;
+    case "par":
+      return <p>{data}</p>;
     default:
       break;
   }
