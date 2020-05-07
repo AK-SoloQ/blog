@@ -1,14 +1,18 @@
 import React, { useState } from 'react'
 
-import Navbar from './Containers/nav/Navbar'
-import Header from './Containers/header/Header'
-import Footer from './Containers/footer/Footer'
-import { NotFound, SideBarLeft, Container } from './Containers/pages'
-import { PAGES, DOCKER } from './constants'
+import { Navbar, Header, Footer, NotFound, Inprogress } from './components/common'
+import { SideBarLeft, Home } from './components/pages'
+import { PAGES, DOCKER, COMPOSE } from './constants'
 
 function App () {
-  const [active, setActive] = useState('Docker')
-  const renderContainer = () => {
+  /**
+   * Init active components
+   */
+  const [active, setActive] = useState('Home')
+  /**
+   *render the active Component
+   */
+  const renderComponent = () => {
     let hasBody = true
     const _render = []
 
@@ -16,43 +20,55 @@ function App () {
       _render.push(<header id='head' className='secondary' />)
     }
 
+    const renderSideBarLeft = (content) => {
+      return (
+        <SideBarLeft name={active} handlerPageSelect={handlerPageSelect} content={content} key='sideBarLeft' />
+      )
+    }
     switch (active) {
       case 'Home':
-        _render.push(<Header />)
-        _render.push(<Container />)
+        _render.push(<Header key='header' />)
+        _render.push(<Home key='home' />)
         break
       case 'Docker':
-      case 'Compose':
-      case 'Vagrant':
-      case 'Ansible':
-      case 'Swarm':
-
-        _render.push(<SideBarLeft name={active} handlerPageSelect={handlerPageSelect} content={DOCKER} />)
+        _render.push(renderSideBarLeft(DOCKER))
         break
+      case 'Compose':
+        _render.push(renderSideBarLeft(COMPOSE))
+        break
+        // case 'Vagrant':
+        // case 'Ansible':
+        // case 'Swarm':
       default:
         hasBody = false
-        _render.push(<NotFound />)
+        _render.push(<Inprogress key='notFound' />)
         break
     }
-    if (hasBody) { _render.push(<Footer />) }
+    if (hasBody) { _render.push(<Footer key='footer' />) }
     return _render
   }
 
+  /**
+   * handler to change the active(or selected) component
+   */
   const handlerPageSelect = (name) => {
     setActive(name)
   }
+  /**
+  * the main render
+  */
 
-  return PAGES.length ? (
+  return PAGES.data.length ? (
     <div className='home'>
       <Navbar
-        pages={PAGES}
+        pages={PAGES.data}
         active={active}
         handlerPageSelect={handlerPageSelect}
       />
-      {renderContainer()}
+      {renderComponent()}
     </div>
   ) : (
-    <h1>Loading....</h1>
+    <NotFound />
   )
 }
 

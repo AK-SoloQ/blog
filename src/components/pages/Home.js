@@ -1,5 +1,5 @@
 import React from 'react'
-function Container () {
+function Home () {
   return (
     <div className='container'>
       <h2 className='text-center top-space'>Questions fréquemment posées</h2>
@@ -64,4 +64,4 @@ function Container () {
   )
 }
 
-export default Container
+export default Home

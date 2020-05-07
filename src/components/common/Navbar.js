@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 function Navbar (props) {
-  console.log(props)
   const navBars = props.pages
   let active = props.active
 
@@ -22,7 +21,7 @@ function Navbar (props) {
   const renderDropDown = (navbar, index, _class) => {
     return (
       <li key={index} className={`dropdown ${_class}`}>
-        <a className='dropdown-toggle' data-toggle='dropdown'>
+        <a href='/#' className='dropdown-toggle' data-toggle='dropdown'>
           {navbar.name} <b className='caret' />
         </a>
         <ul className='dropdown-menu'>
@@ -36,7 +35,7 @@ function Navbar (props) {
                   props.handlerPageSelect(menu)
                 }}
               >
-                <a>{menu}</a>
+                <a href='/#'>{menu}</a>
               </li>
             )
           })}
@@ -59,7 +58,7 @@ function Navbar (props) {
             <span className='icon-bar' />
             <span className='icon-bar' />
           </button>
-          <a className='navbar-brand' href='index.html'>
+          <a href='/#' className='navbar-brand'>
             <img src='assets/images/logo.png' alt='Progressus HTML5 template' />
           </a>
         </div>
@@ -76,7 +75,7 @@ function Navbar (props) {
                     props.handlerPageSelect(navbar.name)
                   }}
                 >
-                  <a>{navbar.name}</a>
+                  <a href='/#'>{navbar.name}</a>
                 </li>
               ) : (
                 renderDropDown(navbar, index, _class)
