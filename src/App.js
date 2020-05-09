@@ -8,7 +8,7 @@ function App () {
   /**
    * Init active components
    */
-  const [active, setActive] = useState('Docker')
+  const [active, setActive] = useState('Compose')
   /**
    *render the active Component
    */
