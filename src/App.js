@@ -8,7 +8,7 @@ function App () {
   /**
    * Init active components
    */
-  const [active, setActive] = useState('Compose')
+  const [active, setActive] = useState('Home')
   /**
    *render the active Component
    */
