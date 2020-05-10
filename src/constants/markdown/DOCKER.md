@@ -1,4 +1,4 @@
-# Container Usage!
+# Docker & Container Usage!
 ------
 
 ## What is a Container and why ?
@@ -36,7 +36,7 @@ Containers have all the good properties of VMs
 
 - Can be stopped. saved and moved to another machine or for later run.
 
-## Docker and containers
+## Docker
 
 Provides the isolation among container, helps them share the OS, Docker is dock worker => Manage containers, Developed initially by Docker.com, Downloadable for Linux, Windos and Mac.
 

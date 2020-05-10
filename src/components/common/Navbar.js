@@ -59,7 +59,7 @@ function Navbar (props) {
             <span className='icon-bar' />
           </button>
           <a href='/#' className='navbar-brand'>
-            <img src='assets/images/logo.png' alt='Progressus HTML5 template' />
+            <img src='assets/images/logo1.png' alt='Progressus HTML5 template' />
           </a>
         </div>
         <div className='navbar-collapse collapse'>
@@ -75,7 +75,7 @@ function Navbar (props) {
                     props.handlerPageSelect(navbar.name)
                   }}
                 >
-                  <a href='/#'>{navbar.name}</a>
+                  <a href='/#'> {navbar.name}</a>
                 </li>
               ) : (
                 renderDropDown(navbar, index, _class)

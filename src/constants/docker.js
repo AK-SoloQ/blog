@@ -2,11 +2,11 @@ export default {
   title: 'Container Usage',
   plans: [
     'What is  a container and why?',
-    'Docker and containers',
-    'Docker command line',
-    'Connect container to docker networks',
-    'Manage container storage with volumes',
-    'create Dockerfiles and build images'
+    'Containers',
+    'Docker',
+    'Dockerfiles',
+    'Docker Networks',
+    'Docker Storage'
   ],
   images: [
     {
