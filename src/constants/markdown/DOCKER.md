@@ -4,6 +4,7 @@
 ## What is a Container and why ?
 
 ### Advantange of Virtualization:
+
 - Minimize harware costs
 - Mutliple virtual servers on one physical hardware
 - Easily move VMs to other data centers
@@ -17,13 +18,13 @@ Each Vm requires an operation system (OS)
 
 the solution is `Containers`, run many apps in the same virtual machine, these apps share the os and its overhead, but these apps can't access each other's resources without explicit permission.
 
-Multiple container run on one operation system on virtual physical machine, All containers share the operation system, Containers are isolated (cannot interfere with each other, Own file system/data , own networking )
+Multiple containers run on one operation system on virtual/physical machine. All containers share the operation system. Containers are isolated (cannot interfere with each other, Own file system/data , own networking )
 
 ## Containers
 
 Containers have all the good properties of VMs
 
-- Come complete with alll files and data that you need to run
+- Come complete with all files and data that you need to run
 
 - Multiple copies can be run on the same machine or different machine => Scalable.
 
@@ -39,7 +40,8 @@ Containers have all the good properties of VMs
 
 Provides the isolation among container, helps them share the OS, Docker is dock worker => Manage containers, Developed initially by Docker.com, Downloadable for Linux, Windos and Mac.
 
-Docker Engine Runtime (Two Editions:):
+Docker Engine Runtime (Two Editions):
+
 - Community Edition(CE): Free for experimentation.
 - Entreprise Edition(EE): For deployment with paid support
 
@@ -49,9 +51,10 @@ written in `Go` programming language from google, now open source projet under m
 containers are built from images and can be saves as images 
 
 images are stored in registries
-- Local registry on the same host
-- Docker Hub Registryy: Globally shared
-- Private registry on Docker.com
+
+- Local registry on the same host.
+- Docker Hub Registry: Globally shared.
+- Private registry on Docker.com.
 
 Any component not found in the local registry is downloaded from specified location.
 
@@ -70,10 +73,11 @@ Fro example:
 - Ubuntu Os is installed, then
 - Python package is installed, then
 - A security patch to the python is installed
-
+  
+Layers can be shared among many containers
 
 ## Dockerfile
-Docker can build images automatically by reading the  instructions from a Dockerfile, a Dockerfile is a text document  that contains all the  commands a user could call on the command line to assemble an image, Docker can build images automatically by reading the instructions form a Dockerfile.
+Docker can build images automatically by reading the  instructions from a Dockerfile, a Dockerfile is a text document  that contains all the commands a user could call on the command line to assemble an image, Docker can build images automatically by reading the instructions form a Dockerfile.
 
 ``` docker
 $ docker build {path}
@@ -91,20 +95,20 @@ A Dockerfile must start with a `FROM` instruction
 
 > docker run -it --rm  -p 80:80 nginx
 
-Command line arguments to docker run <image> will be appended after all elments in an exec from ENTRYPOINT and will override all elemnts specifier using CMD
+Command line arguments to docker run <image> will be appended after all elments in an exec from ENTRYPOINT and will override all elemnts specifier using CMD.
 
- `CMD` provide defaults for an executing container., there can only be on CMD instruction in a  Dockerfile, if you list more than one CMD, only the lat CMD will take effect, the CMD instruction sets   the command to be executed when running the image.
+ `CMD` provide defaults for an executing container, there can only be on CMD instruction in a  Dockerfile, if you list more than one CMD, only the lat CMD will take effect, the CMD instruction sets the command to be executed when running the image.
   
 
- `COPY` instruction copies new files or directories from <src> and adds them to the filesystem of the container at the path <dest>, files and directories will be interpreted as relative to the source of the context of the build
+ `COPY` instruction copies new files or directories from <src> and adds them to the filesystem of the container at the path <dest>, files and directories will be interpreted as relative to the source of the context of the build.
 
- `ADD ` instruction copies new files, directories or remote file URLs from <src> and adds them to the filesystem of  the image at the <dest>
+ `ADD ` instruction copies new files, directories or remote file URLs from <src> and adds them to the filesystem of the image at the <dest>.
 
- `WORKDIR` instruction sets the working directory for any RUN,CMD, ENTRYPOINT, COPY and ADD instructions tha follow it in the Dockerfile.
+ `WORKDIR` instruction sets the working directory for any RUN,CMD, ENTRYPOINT, COPY and ADD instructions that follow it in the Dockerfile.
 
- `EXPOSE` instruction informs Docker that the container listens on the specified network ports at runtime (BS: the EXPOSE instruction dons not actually publish the prot)
+ `EXPOSE` instruction informs Docker that the container listens on the specified network ports at runtime (BS: the EXPOSE instruction dons not actually publish the prot).
 
- `ENV` instruction set the environment variable <key> to the value <value>, this value will be in the enironment for all subsquent instructions in the build stage
+ `ENV` instruction sets the environment variable <key> to the value <value>, this value will be in the environment for all subsquent instructions in the build stage.
 
  `VOLUME` instruction creates a mount point with the specified name and marks it as holding externally mounted volumes from native host or other containers.
 
@@ -128,24 +132,26 @@ ENTRYPOINT [node, app.js]           <--- Main application to run
 
 ## Docker Networks
 
-Docker's networking sybsystem is pluggable, using drivers, to list all docker networks run :
+Docker's networking subsystem is pluggable, using drivers, to list all docker networks:
 
 ```sh
 $ docker network ls 
 ```
 
 serveral drivers exist by default , and provide core networking functionality:
-- bridge: the default  network driver.
+
+- bridge: the default network driver.
 - host: for standalone containers, remove network isolation between the cotainer and the docker host, and use the host's networking directly.
 - Overlay: Connect multiple Docker daemons together  and enable swarm services to communicate with each other.
 
 ## Docker Storage
 
-by default all files created inside a container are stored on a writable container layer (the data donsn't persist when theat container no longer exists)
+by default all files created inside a container are stored on a writable container layer (the data doesn't persist when theat container no longer exists)
 
-Sso that the files are persisted event after the container stops, Docker has three options:
- - Volumes: stored in /var/lib/docker/volumes
- - Bind mounts: stored anywhere on the host system
- - tmpfs mounts: stored in the host system's memory only
+So that the files are persisted event after the container stops, Docker has three options:
+
+ - Volumes: stored in /var/lib/docker/volumes.
+ - Bind mounts: stored anywhere on the host system.
+ - tmpfs mounts: stored in the host system's memory only.
 
  Volumes  are  the preferred mechanism form persisting data generated and used by docker containers.
