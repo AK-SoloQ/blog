@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import { Navbar, Header, Footer, NotFound, Inprogress } from './components/common'
 import { SideBarLeft, Home } from './components/pages'
@@ -6,26 +7,22 @@ import { PAGES, DOCKER, COMPOSE } from './constants'
 
 function App () {
   /**
-   * Init active components
-   */
-  const [active, setActive] = useState('Home')
-  /**
    *render the active Component
    */
-  const renderComponent = () => {
+  const renderComponent = (_active) => {
     let hasBody = true
     const _render = []
 
-    if (active !== 'Home') {
+    if (_active !== 'Home') {
       _render.push(<header id='head' className='secondary' />)
     }
 
     const renderSideBarLeft = (content) => {
       return (
-        <SideBarLeft name={active} handlerPageSelect={handlerPageSelect} content={content} key='sideBarLeft' />
+        <SideBarLeft name={_active} content={content} key='sideBarLeft' />
       )
     }
-    switch (active) {
+    switch (_active) {
       case 'Home':
         _render.push(<Header key='header' />)
         _render.push(<Home key='home' />)
@@ -49,27 +46,20 @@ function App () {
   }
 
   /**
-   * handler to change the active(or selected) component
-   */
-  const handlerPageSelect = (name) => {
-    setActive(name)
-  }
-  /**
   * the main render
   */
-
-  return PAGES.data.length ? (
-    <div className='home'>
-      <Navbar
-        pages={PAGES.data}
-        active={active}
-        handlerPageSelect={handlerPageSelect}
-      />
-      {renderComponent()}
-    </div>
-  ) : (
-    <NotFound />
-  )
+  if (PAGES.data.length) {
+    const routeComponents = PAGES.data.filter(page => page.type === 'simple').map((page, index) => <Route exact path={page.path} key={index} children={renderComponent(page.name)} />)
+    return (
+      <BrowserRouter>
+        <Navbar />
+        <Switch>
+          {routeComponents}
+          <Route component={NotFound} />
+        </Switch>
+      </BrowserRouter>
+    )
+  } else { return <NotFound /> }
 }
 
 export default App

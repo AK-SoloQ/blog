@@ -1,10 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { PAGES } from '../../constants'
 
 function Navbar (props) {
-  const navBars = props.pages
-  let active = props.active
+  const navBars = PAGES.data
+  // let active = props.active
 
-  const findActive = () => {
+  /* const findActive = () => {
     var result = navBars.find((navbar) => navbar.name === active)
     if (typeof result === 'undefined') {
       result = navBars.find((item) => {
@@ -16,7 +18,7 @@ function Navbar (props) {
     }
     active = result.name
   }
-  findActive()
+  findActive() */
 
   const renderDropDown = (navbar, index, _class) => {
     return (
@@ -26,16 +28,11 @@ function Navbar (props) {
         </a>
         <ul className='dropdown-menu'>
           {navbar.menus.map((menu, index) => {
-            const _class = menu === props.active ? 'active' : ''
             return (
               <li
                 key={index}
-                className={_class}
-                onClick={() => {
-                  props.handlerPageSelect(menu)
-                }}
               >
-                <a href='/#'>{menu}</a>
+                <Link to={menu.path}> {menu.name} </Link>
               </li>
             )
           })}
@@ -54,7 +51,7 @@ function Navbar (props) {
             data-toggle='collapse'
             data-target='.navbar-collapse'
           >
-            <span className='icon-bar' />{' '}
+            <span className='icon-bar' />
             <span className='icon-bar' />
             <span className='icon-bar' />
           </button>
@@ -65,20 +62,12 @@ function Navbar (props) {
         <div className='navbar-collapse collapse'>
           <ul className='nav navbar-nav pull-right'>
             {navBars.map((navbar, index) => {
-              const _class = navbar.name === active ? 'active' : ''
-
               return navbar.type === 'simple' ? (
-                <li
-                  key={index}
-                  className={_class}
-                  onClick={() => {
-                    props.handlerPageSelect(navbar.name)
-                  }}
-                >
-                  <a href='/#'> {navbar.name}</a>
+                <li key={index}>
+                  <Link to={navbar.path}> {navbar.name}</Link>
                 </li>
               ) : (
-                renderDropDown(navbar, index, _class)
+                renderDropDown(navbar, index)
               )
             })}
 

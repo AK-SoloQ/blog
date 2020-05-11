@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import ReactMarkdown from 'react-markdown'
+import { Link } from 'react-router-dom'
 
-function SideBarLeft ({ handlerPageSelect, name, content }) {
+function SideBarLeft ({ name, content }) {
 /**
  * Init post, data and markdwon
  */
@@ -25,14 +26,11 @@ function SideBarLeft ({ handlerPageSelect, name, content }) {
     <div className='container'>
       <ol className='breadcrumb'>
         <li>
-          <a
-            href='/#'
-            onClick={() => {
-              handlerPageSelect('Home')
-            }}
+          <Link
+            to='/'
           >
             Home
-          </a>
+          </Link>
         </li>
         <li className='active'>{name}</li>
       </ol>
