@@ -4,25 +4,11 @@ import { PAGES } from '../../constants'
 
 function Navbar (props) {
   const navBars = PAGES.data
-  // let active = props.active
+  const dataToggle = window.innerWidth <= 755 ? 'collapse' : ''
 
-  /* const findActive = () => {
-    var result = navBars.find((navbar) => navbar.name === active)
-    if (typeof result === 'undefined') {
-      result = navBars.find((item) => {
-        if (item.type === 'dropdown') {
-          var _result = item.menus.find((menu) => menu === active)
-        }
-        return !!_result
-      })
-    }
-    active = result.name
-  }
-  findActive() */
-
-  const renderDropDown = (navbar, index, _class) => {
+  const renderDropDown = (navbar, index) => {
     return (
-      <li key={index} className={`dropdown ${_class}`}>
+      <li key={index} className='dropdown'>
         <a href='/#' className='dropdown-toggle' data-toggle='dropdown'>
           {navbar.name} <b className='caret' />
         </a>
@@ -63,7 +49,7 @@ function Navbar (props) {
           <ul className='nav navbar-nav pull-right'>
             {navBars.map((navbar, index) => {
               return navbar.type === 'simple' ? (
-                <li key={index}>
+                <li key={index} data-toggle={dataToggle} data-target='.navbar-collapse'>
                   <Link to={navbar.path}> {navbar.name}</Link>
                 </li>
               ) : (

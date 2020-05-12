@@ -1,7 +1,30 @@
 import React from 'react'
+import { Helmet } from 'react-helmet'
+
 function Home () {
   return (
     <div className='container'>
+      <Helmet meta={[
+        { name: 'author', content: 'Abd Ahmed' },
+
+        { name: 'twitter:site', content: 'blog.abdelmoula.co' },
+        { name: 'twitter:creator', content: 'Abd Ahmed' },
+        { name: 'twitter:title', content: 'The blog' },
+        {
+          name: 'twitter:image', content: 'https://blog.abdelmoula.co/assets/images/bg_header.jpg'
+        },
+
+        { property: 'og:title', content: 'The Blog' },
+        { property: 'og:site_name', content: 'blog.abdelmoula.co' },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:url', content: 'https://blog.abdelmoula.co/' },
+        { property: 'og:description', content: 'Labore sint sint pariatur minim consequat proident elit laboris laboris consequat non laborum esse.' },
+        { property: 'og:image', content: 'https://blog.abdelmoula.co/assets/images/bg_header.jpg' },
+        { property: 'og:site_name', content: 'The blog' },
+
+        { name: 'viewport', content: 'width=device-width, maximum-scale=1' },
+        { name: 'apple-itunes-app', content: 'app-id=1125423676' }
+      ]} />
       <h2 className='text-center top-space'>Questions fréquemment posées</h2>
       <br />
 
