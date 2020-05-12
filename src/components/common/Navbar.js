@@ -42,7 +42,7 @@ function Navbar (props) {
             <span className='icon-bar' />
           </button>
           <a href='/#' className='navbar-brand'>
-            <img src='assets/images/logo1.png' alt='Progressus HTML5 template' />
+            <img src='assets/images/logo.webp' alt='Progressus HTML5 template' />
           </a>
         </div>
         <div className='navbar-collapse collapse'>

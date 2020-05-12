@@ -11,7 +11,7 @@ function Home () {
         { name: 'twitter:creator', content: 'Abd Ahmed' },
         { name: 'twitter:title', content: 'The blog' },
         {
-          name: 'twitter:image', content: 'https://blog.abdelmoula.co/assets/images/bg_header.jpg'
+          name: 'twitter:image', content: 'https://blog.abdelmoula.co/assets/images/bg_header.webp'
         },
 
         { property: 'og:title', content: 'The Blog' },
@@ -19,11 +19,17 @@ function Home () {
         { property: 'og:type', content: 'website' },
         { property: 'og:url', content: 'https://blog.abdelmoula.co/' },
         { property: 'og:description', content: 'Labore sint sint pariatur minim consequat proident elit laboris laboris consequat non laborum esse.' },
-        { property: 'og:image', content: 'https://blog.abdelmoula.co/assets/images/bg_header.jpg' },
+        { property: 'og:image', content: 'https://blog.abdelmoula.co/assets/images/bg_header.webp' },
         { property: 'og:site_name', content: 'The blog' },
 
         { name: 'viewport', content: 'width=device-width, maximum-scale=1' },
-        { name: 'apple-itunes-app', content: 'app-id=1125423676' }
+        { name: 'apple-itunes-app', content: 'app-id=1125423676' },
+        { property:"og:type", content:"article" },
+        { property: "og:url", content:"https://blog.abdelmoula.co/" },
+        { property: "og:image", content:"https://blog.abdelmoula.co/assets/images/bg_header.webp" },
+        { property:"og:description", content:"Proident et mollit minim Lorem est adipisicing proident esse nisi est aute qui eiusmod ad." },
+        { property:"og:site_name", content:"The Blog" },
+        { property:"fb:admins", content:"Facebook numeric ID" }
       ]} />
       <h2 className='text-center top-space'>Questions fréquemment posées</h2>
       <br />

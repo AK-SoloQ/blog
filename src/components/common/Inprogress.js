@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from './../../asset/images/in_progress.png'
+import logoWebp from './../../asset/images/in_progress.webp'
 
 function Inprogress () {
   return (
@@ -10,7 +10,7 @@ function Inprogress () {
             <h1>UNDER CONSTRUCTION</h1>
             <h2>Our website is under contruction. we are working very hard to give you the best experience with this one.</h2>
             <img
-              src={logo}
+              src={logoWebp}
               alt='in_progress'
             />
             <div className='error-details'>
