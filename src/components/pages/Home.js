@@ -1,36 +1,10 @@
 import React from 'react'
-import { Helmet } from 'react-helmet'
+// import { Helmet } from 'react-helmet'
 
 function Home () {
+  
   return (
     <div className='container'>
-      <Helmet meta={[
-        { name: 'author', content: 'Abd Ahmed' },
-
-        { name: 'twitter:site', content: 'blog.abdelmoula.co' },
-        { name: 'twitter:creator', content: 'Abd Ahmed' },
-        { name: 'twitter:title', content: 'The blog' },
-        {
-          name: 'twitter:image', content: 'https://blog.abdelmoula.co/assets/images/bg_header.webp'
-        },
-
-        { property: 'og:title', content: 'The Blog' },
-        { property: 'og:site_name', content: 'blog.abdelmoula.co' },
-        { property: 'og:type', content: 'website' },
-        { property: 'og:url', content: 'https://blog.abdelmoula.co/' },
-        { property: 'og:description', content: 'Labore sint sint pariatur minim consequat proident elit laboris laboris consequat non laborum esse.' },
-        { property: 'og:image', content: 'https://blog.abdelmoula.co/assets/images/bg_header.webp' },
-        { property: 'og:site_name', content: 'The blog' },
-
-        { name: 'viewport', content: 'width=device-width, maximum-scale=1' },
-        { name: 'apple-itunes-app', content: 'app-id=1125423676' },
-        { property:"og:type", content:"article" },
-        { property: "og:url", content:"https://blog.abdelmoula.co/" },
-        { property: "og:image", content:"https://blog.abdelmoula.co/assets/images/bg_header.webp" },
-        { property:"og:description", content:"Proident et mollit minim Lorem est adipisicing proident esse nisi est aute qui eiusmod ad." },
-        { property:"og:site_name", content:"The Blog" },
-        { property:"fb:admins", content:"Facebook numeric ID" }
-      ]} />
       <h2 className='text-center top-space'>Questions fréquemment posées</h2>
       <br />
 
@@ -39,7 +13,7 @@ function Home () {
           <h3>Quel éditeur de code recommanderiez-vous?</h3>
           <p>
             Je vous recommande fortement
-            <a href='https://code.visualstudio.com/'>VS Code</a> - un éditeur de
+            <a href='https://code.visualstudio.com/' style={{ color: 'blue'}}> VS Code </a> - un éditeur de
             texte gratuit, j'utilise quotidiennement. Un outil génial!
           </p>
         </div>
@@ -50,8 +24,8 @@ function Home () {
           <p>
             Eh bien, il y a des milliers de galeries d'art, mais
             personnellement, je préfère utiliser des photos de ces sites:
-            <a href='http://unsplash.com'>Unsplash.com</a> et
-            <a href='http://www.flickr.com/creativecommons/by-2.0/tags/'>
+            <a href='http://unsplash.com' style={{ color: 'blue' }}> Unsplash.com </a> et
+            <a href='http://www.flickr.com/creativecommons/by-2.0/tags/' style={{ color: 'blue' }}>
               Flickr - Creative Commons
             </a>
           </p>
@@ -71,7 +45,7 @@ function Home () {
           <h3>Pouvez-vous personnaliser un site pour moi?</h3>
           <p>
             Oui je peux. S'il vous plaît écrivez-moi à l'adresse
-            <a href='mailto:ahmed@abdelmoula.com'> ahmed@abdelmoula.com </a> et
+            <a href='mailto:ahmed@abdelmoula.com' style={{ color: 'blue' }}> ahmed@abdelmoula.com </a> et
             décrivez vos besoins en détail. Veuillez noter que mes services sont
             bon marché.
           </p>

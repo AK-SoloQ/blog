@@ -31,16 +31,14 @@ function Navbar (props) {
     <div className='navbar navbar-inverse navbar-fixed-top headroom'>
       <div className='container'>
         <div className='navbar-header'>
-          <button
+          <div
             type='button'
+            id="menubars"
             className='navbar-toggle'
             data-toggle='collapse'
             data-target='.navbar-collapse'
-          >
-            <span className='icon-bar' />
-            <span className='icon-bar' />
-            <span className='icon-bar' />
-          </button>
+          ><i className="fa fa-bars fa-2x" aria-hidden="true" style={{ color: 'white'}}></i>
+          </div>
           <a href='/#' className='navbar-brand'>
             <img src='assets/images/logo.webp' alt='Progressus HTML5 template' />
           </a>
