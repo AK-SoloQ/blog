@@ -1,5 +1,5 @@
 import React from 'react'
-import logoWebp from './../../asset/images/in_progress.webp'
+import logoWebp from './../../assets/images/in_progress.webp'
 
 function Inprogress () {
   return (

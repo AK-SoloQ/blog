@@ -2,8 +2,13 @@ import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import { Navbar, Header, Footer, NotFound, Inprogress } from './components/common'
-import { SideBarLeft, Home } from './components/pages'
+import { SideBarLeft, Home, Contact } from './components/pages'
 import { PAGES, DOCKER, COMPOSE } from './constants'
+
+import './assets/css/bootstrap.min.css'
+// import './assets/css/font-awesome.min.css'
+import './assets/css/bootstrap-theme.css'
+import './assets/css/main.css'
 
 function App () {
   /**
@@ -14,7 +19,7 @@ function App () {
     const _render = []
 
     if (_active !== 'Home') {
-      _render.push(<header id='head' className='secondary' />)
+      _render.push(<header id='head' className='secondary' key='header' />)
     }
 
     const renderSideBarLeft = (content) => {
@@ -32,6 +37,9 @@ function App () {
         break
       case 'Compose':
         _render.push(renderSideBarLeft(COMPOSE))
+        break
+      case 'Contact':
+        _render.push(<Contact key='contact' />)
         break
         // case 'Vagrant':
         // case 'Ansible':

@@ -9,18 +9,12 @@ function Footer () {
               <h3 className='widget-title'>Contact</h3>
               <div className='widget-body'>
                 <p>
-                  <i className='fa fa-phone fa-2x' aria-hidden='true' />
-                  {'  '}
                   (+216) 52 129435
                   <br />
                   <br />
-                  <i className='fa fa-user fa-2x' aria-hidden='true' />
-                  {'  '}
                   <a href='mailto:ahmed@abdelmoula.co'>ahmed@abdelmoula.co</a>
                   <br />
                   <br />
-                  <i className='fa fa-home fa-2x' aria-hidden='true' />
-                  {'  '}
                   11 Riadh Andalous, Ariana City, TN 2036
                 </p>
               </div>
@@ -66,7 +60,7 @@ function Footer () {
             <div className='col-md-6 widget'>
               <div className='widget-body'>
                 <p className='simplenav'>
-                  <a href='/' > Home </a> |<a href='/'> Contact </a>
+                  <a href='/'> Home </a> |<a href='/'> Contact </a>
                 </p>
               </div>
             </div>

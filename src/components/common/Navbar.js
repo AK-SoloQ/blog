@@ -33,11 +33,15 @@ function Navbar (props) {
         <div className='navbar-header'>
           <div
             type='button'
-            id="menubars"
+            id='menubars'
             className='navbar-toggle'
             data-toggle='collapse'
             data-target='.navbar-collapse'
-          ><i className="fa fa-bars fa-2x" aria-hidden="true" style={{ color: 'white'}}></i>
+            style={{
+              color: 'white'
+            }}
+          > Menu
+
           </div>
           <a href='/#' className='navbar-brand'>
             <img src='assets/images/logo.webp' alt='Progressus HTML5 template' />
