@@ -52,8 +52,8 @@ function Contact () {
     event.preventDefault()
     const isJoiValide = validate()
     if (isJoiValide) {
-      window.open(`mailto:ahmed@abdelmoula.co?cc=${emailInput.current.value}&subject=The blog contact&body=Mr ${nameInput.current.value} 
-      \n\n\n Phone : ${phoneInput.current.value} \n\n\n Email: ${emailInput.current.value} \n\n\n ${messageInput.current.value}`)
+      window.open(`mailto:ahmed@abdelmoula.co?cc=${emailInput.current.value}&subject=The blog contact&body=${nameInput.current.value} 
+      %0D%0A${phoneInput.current.value} -  ${emailInput.current.value} %0D%0A %0D%0A${messageInput.current.value}`)
     }
   }
   const errorStyle = {
