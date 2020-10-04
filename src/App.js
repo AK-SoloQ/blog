@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import ReactGA from 'react-ga'
+import { createBrowserHistory } from 'history'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import { Navbar, Header, Footer, NotFound, Inprogress } from './components/common'
@@ -11,6 +13,22 @@ import './assets/css/bootstrap-theme.css'
 import './assets/css/main.css'
 
 function App () {
+/**
+ * @param {Google Analytics}
+ */
+  useEffect(() => {
+    ReactGA.initialize('UA-179604032-1')
+    ReactGA.pageview(window.location.pathname)
+  })
+  const history = createBrowserHistory()
+
+  // Initialize google analytics page view tracking
+  history.listen(location => {
+    ReactGA.initialize('your tracking Id')
+    ReactGA.set({ page: location.pathname }) // Update the user's current page
+    ReactGA.pageview(location.pathname) // Record a pageview for the given page
+  })
+
   /**
    *render the active Component
    */

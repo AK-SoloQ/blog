@@ -26,3 +26,15 @@ Using comose is basicalyy a three-step process:
 - Define your app's environment with a Dockerfile so it can be reproduced anywhere
 - Define the services that make up your app in docker-compose.yml so they can be run together in an isolated environment.
 - Run docker-compose up and Conpose starts and runs your entire app.
+
+## Compose file interpretaion
+
+The previous docker-compose.yml file tells Docker to do the following steps.
+
+- Version 3 is most current, and recommended
+- Pull the image repo
+- Run 5 instances of the image as a service called web, limiting each one to use, at most 10% of the CPU  and 50MB of Ram.
+- Immediately restart  containers if one fails
+- Map ports on the host 
+- Instruct containers to share port via a load-balanced network.
+- Define the network with the default settings
